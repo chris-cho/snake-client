@@ -23,8 +23,12 @@ const handleUserInput = (input) => {
       return "Move: down";
     case 'd':
       return "Move: right";
+    case 'r':
+      return "Say: Heya!";
+    case 'c':
+      return "Say: Move it!";
     default:
-      undefined;
+      `Say: ${input}`;
   }
 }
 
