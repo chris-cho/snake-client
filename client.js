@@ -2,17 +2,29 @@ const net = require('net');
 
 const connect = () => {
   const conn = net.createConnection({
-    host: '10.0.2.15',
+    host: '192.168.228.12',
     port: '50541'
   });
 
-  
+  const setupInput = function() {
+    const stdin = process.stdin;
+    stdin.setRawMode(true);
+    stdin.setEncoding('utf8');
+    stdin.resume();
+    stdin.on('data', (key) => {
+      if (key === '\u0003') {
+        process.exit();
+      } else {
+      return stdin;
+      }
+    });
+  }
 
   conn.on('connect', () => {
     conn.write('Name: HSC')
     conn.setEncoding('utf8');
     console.log("Successfully connected to game server" );
- 
+    setupInput();
   });
   return conn;
 }
