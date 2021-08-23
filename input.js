@@ -1,3 +1,5 @@
+const { keyMapping }  = require('./constants');
+
 let connection;
 
 const setupInput = function(conn) {
@@ -12,24 +14,10 @@ const setupInput = function(conn) {
 }
 
 const handleUserInput = (input) => {
-  switch (input) {
-    case '\u0003':
-      process.exit();
-    case 'w':
-      return "Move: up";
-    case 'a':
-      return "Move: left";
-    case 's':
-      return "Move: down";
-    case 'd':
-      return "Move: right";
-    case 'r':
-      return "Say: Heya!";
-    case 'c':
-      return "Say: Move it!";
-    default:
-      `Say: ${input}`;
-  }
+  if (input !== '\u0003') return keyMapping[input];
+  process.exit();
+  //input == '\u0003' ? process.exit() : keyMapping[input];
+  //Why doesn't the above work?
 }
 
 module.exports = {setupInput};
