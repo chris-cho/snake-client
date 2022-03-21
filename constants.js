@@ -1,4 +1,4 @@
-const IP = `192.168.1.9`;
+const IP = `localhost`;
 const PORT = `50541`;
 const PLAYER = `HSC`;
 
@@ -9,7 +9,7 @@ const keyMapping = {
   d: 'Move: right',
   g: 'Say: Hi',
   t: 'Say: :(',
-  c: 'Say: not bad!'
+  c: 'Say: not bad!',
 }
 
 module.exports = {

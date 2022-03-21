@@ -15,7 +15,7 @@ const setupInput = function(conn) {
 
 const handleUserInput = (input) => {
   if (input !== '\u0003') return keyMapping[input];
-  process.exit();
+  process.exit()
   //input == '\u0003' ? process.exit() : keyMapping[input];
   //Why doesn't the above work?
 }
